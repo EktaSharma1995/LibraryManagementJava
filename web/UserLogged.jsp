@@ -21,6 +21,13 @@
                     UserBean currentUser = (UserBean) (session.getAttribute("currentSessionUser"));%>
 
                 Welcome <%= currentUser.getFirstName() + " " + currentUser.getLastName() %>
+                
+                
+                <form action="ViewBooks" method="post">
+                    
+                   <input type="submit" value="View">			
+
+                </form>
         </center>    
     </body>
 </html>
