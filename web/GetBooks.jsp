@@ -17,6 +17,7 @@
         <table align="center" bgcolor="#E76060" border="1" width="70%" border-collapse: collapse>
            
             <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Author</th>                
                 <th>Subject</th>
@@ -25,9 +26,16 @@
             <c:forEach items="${books}" var="book">
 
                 <tr align="center">
+                    <td><c:out value="${book.id}"/></td>                
                     <td><c:out value="${book.name}"/></td>
                     <td><c:out value="${book.author}"/></td>       
-                    <td><c:out value="${book.subject}"/></td>                   
+                    <td><c:out value="${book.subject}"/></td> 
+                    
+                    <form method = 'POST' action="AddBooksToAccount">
+                        <td><input type='hidden' name = 'id' value="${book.id}"/> </td>
+                        <td><input type="submit" value="submit"></td>		
+                    </form>
+
                 </tr>
             </c:forEach>
         </table>

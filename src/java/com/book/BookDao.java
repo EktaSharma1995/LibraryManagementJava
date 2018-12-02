@@ -30,6 +30,7 @@ public class BookDao {
            
                BookBean book = new BookBean();
                
+               book.setId(rs.getInt("id"));
                book.setName(rs.getString("name"));
                book.setAuthor(rs.getString("author"));
                book.setSubject(rs.getString("subject"));
@@ -43,6 +44,33 @@ public class BookDao {
         }
            return bookList;
 
+
+    }
+    
+    public BookBean getBookDetailsById(int id) throws SQLException, Exception{
+        String query = "select * from books where id =" + id;
+        
+        BookBean book = new BookBean();
+
+    try {
+            Connection conn = Database_Utility.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();  
+
+           while(rs.next()){
+               System.out.println(rs.getInt("id"));
+               book.setId(rs.getInt("id"));
+               book.setName(rs.getString("name"));
+               book.setAuthor(rs.getString("author"));
+               book.setSubject(rs.getString("subject"));
+           
+               System.out.println("Listing Done");
+
+           } 
+        } catch (SQLException sqle) {
+           System.out.println(sqle.getMessage());
+        }
+        return book;
 
     }
     
