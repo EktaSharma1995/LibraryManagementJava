@@ -17,11 +17,8 @@
         BookBean bean=(BookBean)request.getAttribute("details");
     %>
     <table align="center" bgcolor="#FFFFCC" border="1" width="70%">
-       
-        <tr>
-            <td>Id </td>
-            <td><%=bean.getId() %></td>
-            
+        <h3>Book is added to your account successfully. Here is the book details:</h3>
+        <tr>            
             <td>Name </td>
             <td><%=bean.getName() %></td>
             
