@@ -14,7 +14,9 @@ public class UserBean {
     private String password;
     private String firstName;
     private String lastName;
+    private String adminFlag;
     public boolean valid;
+    
 
     public String getUserName() {
         return userName;
@@ -48,6 +50,15 @@ public class UserBean {
         this.lastName = lastName;
     }
 
+    public String getAdminFlag() {
+        return adminFlag;
+    }
+
+    public void setAdminFlag(String adminFlag) {
+        this.adminFlag = adminFlag;
+    }
+
+    
     public boolean isValid() {
         return valid;
     }

@@ -49,7 +49,10 @@
             <label>Password</label>
             <input type="password" name="pw"/>
             <br/><br/>
-            
+<!--            
+            <label>Admin</label>
+            <input type="text" name="flag"/>-->
+
             <input type="submit" value="submit">
             
             </div>

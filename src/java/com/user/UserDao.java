@@ -25,7 +25,8 @@ public class UserDao {
 	
          String username = bean.getUserName();    
          String password = bean.getPassword();   
-	    
+//	 String adminFlag = bean.getAdminFlag();
+         
          String searchQuery =
                "select * from users where username='"
                         + username
@@ -36,6 +37,7 @@ public class UserDao {
       // "System.out.println" prints in the console; Normally used to trace the process
       System.out.println("Your user name is " + username);          
       System.out.println("Your password is " + password);
+      
       System.out.println("Query: "+searchQuery);
 	    
       try 
@@ -57,14 +59,25 @@ public class UserDao {
          //if user exists set the isValid variable to true
          else if (more) 
          {
+            String adminFlag = rs.getString("adminFlag");
             String firstName = rs.getString("FirstName");
-            String lastName = rs.getString("LastName");
-	     	
-            System.out.println("Welcome " + firstName);
-            bean.setFirstName(firstName);
-            bean.setLastName(lastName);
-            bean.setValid(true);
+            String lastName = rs.getString("LastName"); 
+            
+            if(adminFlag.equalsIgnoreCase("Yes")){
+                System.out.println("Welcome " + firstName);
+                bean.setFirstName(firstName);
+                bean.setLastName(lastName);
+                bean.setAdminFlag(adminFlag);
+                bean.setValid(true);
+
+            } else {
+                bean.setFirstName(firstName);
+                bean.setLastName(lastName);
+                bean.setAdminFlag(adminFlag);
+                bean.setValid(true);
+            }
          }
+
       } 
 
       catch (Exception ex) 

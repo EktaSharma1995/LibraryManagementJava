@@ -70,9 +70,20 @@ public class LoginServlet extends HttpServlet {
 	   		    
         if (user.isValid())
         {
+            if(user.getAdminFlag().equalsIgnoreCase("Yes")){
+                
              HttpSession session = request.getSession(true);	    
              session.setAttribute("currentSessionUser",user); 
-             response.sendRedirect("UserLogged.jsp"); //logged-in page      		
+             response.sendRedirect("AdminLoggedIn.jsp"); //logged-in page      	
+            
+            } else {
+                
+             HttpSession session = request.getSession(true);	    
+             session.setAttribute("currentSessionUser",user); 
+             response.sendRedirect("UserLoggedIn.jsp"); //logged-in page  
+            
+            }
+                 		
         }
 
         else {
