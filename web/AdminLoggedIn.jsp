@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.database.Database_Utility"%>
-<%@page import="com.user.UserBean"%>
+<%@page import="com.bean.UserBean"%>
 
 <!DOCTYPE html>
 <html>

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.user;
+package com.dao;
 
+import com.bean.UserBean;
 import com.database.Database_Utility;
 import java.sql.Connection;
 import java.sql.ResultSet;

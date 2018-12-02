@@ -5,8 +5,8 @@
  */
 package com.servlet;
 
-import com.user.UserBean;
-import com.user.UserDao;
+import com.bean.UserBean;
+import com.dao.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

@@ -5,8 +5,8 @@
  */
 package com.servlet;
 
-import com.book.BookBean;
-import com.book.BookDao;
+import com.bean.BookBean;
+import com.dao.BookDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
