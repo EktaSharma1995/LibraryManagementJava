@@ -14,6 +14,7 @@ public class BookBean {
     private String name;
     private String author;
     private String subject;
+    private String availability;
 
     public int getId() {
         return id;
@@ -47,6 +48,15 @@ public class BookBean {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
+    
     
     
     

@@ -21,12 +21,16 @@
 
                 Welcome Admin <%= currentUser.getFirstName() + " " + currentUser.getLastName()  %>
                 
+                <br/>
                 
-                <form action="ViewBooks" method="post">
-                    
-                   <input type="submit" value="View">			
+                <a href="AddBooks.jsp">Add Books</a>
+                <br/>
+                <a href="UpdateBook.jsp">Update Books</a>
+                <br/>
+                <a href="AddBooks.jsp">Delete Books</a>
+                <br/>
 
-                </form>
+
         </center>   
     </body>
 </html>

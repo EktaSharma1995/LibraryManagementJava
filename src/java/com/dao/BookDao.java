@@ -35,6 +35,7 @@ public class BookDao {
                book.setName(rs.getString("name"));
                book.setAuthor(rs.getString("author"));
                book.setSubject(rs.getString("subject"));
+               book.setAvailability(rs.getString("availability"));
            
                bookList.add(book);
                System.out.println("Listing Done");
@@ -64,6 +65,8 @@ public class BookDao {
                book.setName(rs.getString("name"));
                book.setAuthor(rs.getString("author"));
                book.setSubject(rs.getString("subject"));
+               book.setAvailability(rs.getString("availabbility"));
+
            
                System.out.println("Listing Done");
 
@@ -75,4 +78,62 @@ public class BookDao {
 
     }
     
-}
+    public void addBooks(BookBean book) throws SQLException, Exception{
+        String query = "insert into books values(?,?,?,?,?)";
+
+    try{
+
+         Connection conn = Database_Utility.getConnection();
+         PreparedStatement ps = conn.prepareStatement(query);
+         System.out.println("querry run");
+
+         ps.setInt(1, book.getId());
+         ps.setString(2, book.getName().trim());
+         ps.setString(3, book.getAuthor().trim());
+         ps.setString(4, book.getSubject().trim());
+         ps.setString(5, book.getAvailability().trim());
+      
+         ps.executeUpdate(); // execute it on test database
+         conn.commit();
+
+         System.out.println("successfuly inserted");
+
+       } catch(Exception ex){
+           System.out.println(ex.getMessage());
+
+       }
+    }
+    /**
+     *
+     * @param book
+     * @throws SQLException
+     * @throws Exception
+     */
+    public void updateBook(BookBean book) throws SQLException,Exception {
+        String query = "update books set name = ?, author = ?, subject = ?,availability = ?  where id = ?";
+        
+        try {
+         Connection conn = Database_Utility.getConnection();
+         PreparedStatement ps = conn.prepareStatement(query);
+         
+         ps.setInt(1, book.getId());
+         ps.setString(2, book.getName().trim());
+         ps.setString(3, book.getAuthor().trim());
+         ps.setString(4, book.getSubject().trim());
+         ps.setString(5, book.getAvailability().trim());
+            int countOfUpdation = ps.executeUpdate();
+            conn.commit();
+            
+            if (countOfUpdation <= 0) {
+                throw new Exception("No record was updated !");
+            }
+      
+            
+            }  catch (Exception e) {
+                 throw new Exception(e);
+        }
+
+    }
+   }
+    
+

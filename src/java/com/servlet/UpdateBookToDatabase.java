@@ -9,6 +9,8 @@ import com.bean.BookBean;
 import com.dao.BookDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ektasharma
  */
-public class AddBooksToAccount extends HttpServlet {
+public class UpdateBookToDatabase extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +40,10 @@ public class AddBooksToAccount extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddBooksToAccount</title>");            
+            out.println("<title>Servlet UpdateBookToDatabase</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddBooksToAccount at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UpdateBookToDatabase at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,7 +61,8 @@ public class AddBooksToAccount extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-   }
+        processRequest(request, response);
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -73,25 +76,30 @@ public class AddBooksToAccount extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     try {
-            /* TODO output your page here. You may use following sample code. */
+        
             BookDao bookDao = new BookDao();
             
             int id = Integer.valueOf(request.getParameter("id"));
-            BookBean bean = new BookBean();
+            String name = request.getParameter("name");
+            String author = request.getParameter("author");
+            String subject = request.getParameter("subject");
+            String availability = request.getParameter("availability");
+            
+            BookBean book = new BookBean();
+            book.setId(id);
+            book.setName(name);
+            book.setAuthor(author);
+            book.setSubject(subject);
+            book.setAvailability(availability);
+            
+            bookDao.updateBook(book);
+            
+           RequestDispatcher dispatcher=request.getRequestDispatcher("/AdminLoggedIn.jsp");
+           dispatcher.forward(request, response);
 
-            bean = bookDao.getBookDetailsById(id);
-            RequestDispatcher dispatcher=request.getRequestDispatcher("/ShowAccount.jsp");
-
-            System.out.println(bean.getId());
-            request.setAttribute("details",bean);
-            dispatcher.forward(request, response);
-        }   catch (ServletException e) {
-            e.printStackTrace();
-        }   catch (IOException e) {
-            e.printStackTrace();
-        }   catch(Exception e){
-            e.printStackTrace();
-        }     }
+            } catch (Exception ex) {
+            Logger.getLogger(AddBooksToDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }    }
 
     /**
      * Returns a short description of the servlet.

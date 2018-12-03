@@ -12,6 +12,14 @@
         <servlet-name>AddBooksToAccount</servlet-name>
         <servlet-class>com.servlet.AddBooksToAccount</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddBooksToDatabase</servlet-name>
+        <servlet-class>com.servlet.AddBooksToDatabase</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateBookToDatabase</servlet-name>
+        <servlet-class>com.servlet.UpdateBookToDatabase</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>AddBooksToAccount</servlet-name>
         <url-pattern>/AddBooksToAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBooksToDatabase</servlet-name>
+        <url-pattern>/AddBooksToDatabase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateBookToDatabase</servlet-name>
+        <url-pattern>/UpdateBookToDatabase</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
