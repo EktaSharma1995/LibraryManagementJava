@@ -98,7 +98,7 @@ public class UpdateBookToDatabase extends HttpServlet {
            dispatcher.forward(request, response);
 
             } catch (Exception ex) {
-            Logger.getLogger(AddBooksToDatabase.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
         }    }
 
     /**
