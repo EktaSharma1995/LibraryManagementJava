@@ -20,6 +20,10 @@
         <servlet-name>UpdateBookToDatabase</servlet-name>
         <servlet-class>com.servlet.UpdateBookToDatabase</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteBookFromDatabase</servlet-name>
+        <servlet-class>com.servlet.DeleteBookFromDatabase</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>UpdateBookToDatabase</servlet-name>
         <url-pattern>/UpdateBookToDatabase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBookFromDatabase</servlet-name>
+        <url-pattern>/DeleteBookFromDatabase</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

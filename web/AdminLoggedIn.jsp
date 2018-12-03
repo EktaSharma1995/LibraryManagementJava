@@ -27,7 +27,7 @@
                 <br/>
                 <a href="UpdateBook.jsp">Update Books</a>
                 <br/>
-                <a href="AddBooks.jsp">Delete Books</a>
+                <a href="DeleteBook.jsp">Delete Books</a>
                 <br/>
 
 

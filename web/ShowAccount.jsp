@@ -4,7 +4,7 @@
     Author     : ektasharma
 --%>
 
-<%@page import="com.book.BookBean"%>
+<%@page import="com.bean.BookBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

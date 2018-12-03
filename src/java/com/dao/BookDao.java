@@ -105,8 +105,6 @@ public class BookDao {
     public void updateBook(BookBean book) throws SQLException, Exception {
         String query = "update books set name = ?, author = ?, subject = ?,availability = ?  where id =" + book.getId();
 
-        System.out.println(book.getId());
-
         try {
             Connection conn = Database_Utility.getConnection();
             PreparedStatement ps = conn.prepareStatement(query);
@@ -122,6 +120,22 @@ public class BookDao {
             conn.commit();
 
             System.out.println("successfuly updated");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    
+    public void deleteBook(int id) throws Exception {
+        String sql = "delete from books where id =" + id ;
+        
+        try {
+            Connection conn = Database_Utility.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.executeUpdate();
+            conn.commit();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
